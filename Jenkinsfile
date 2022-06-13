@@ -35,5 +35,10 @@ sh "ssh -vvv -o StrictHostKeyChecking=no -T ubuntu@ec2-34-201-250-94.compute-1.a
 }
 }
 }
+stage('Remove Unused docker image') {
+steps{
+sh "docker rmi $imagename:$BUILD_NUMBER"
+}
+}
 }
 }
